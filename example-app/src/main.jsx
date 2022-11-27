@@ -11,10 +11,31 @@ function FormDefault() {
   )
 }
 
+function FormSensitive() {
+  const [visible, setVisible] = React.useState(false)
+
+  return (
+    <form autoComplete="off">
+      <div>
+        <input placeholder="Sensitive password" autoComplete="off" type={visible ? 'text' : 'password'} />
+        <label>
+          Toggle
+          <input type="checkbox" value={visible} onChange={e => setVisible(e.target.checked)} />
+        </label>
+      </div>
+      <div><textarea placeholder="Sensitive textarea" autoComplete="off" /></div>
+      <div><input type="submit" /></div>
+    </form>
+  )
+}
+
 function App() {
   return (
     <div>
       <FormDefault/>
+      <br />
+      <br />
+      <FormSensitive/>
     </div>
   )
 }
