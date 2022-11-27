@@ -6,5 +6,8 @@
   "devDependencies": {
     "@playwright/test": "^1.28.1"
   },
-  "scripts": {}
+  "scripts": {
+    "start": "yarn --cwd example-app dev",
+    "test": "playwright test"
+  }
 }
