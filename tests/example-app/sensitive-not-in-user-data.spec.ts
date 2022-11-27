@@ -17,6 +17,7 @@ test('Chromium: inputs are not written to disk', async () => {
   const page = await browser.newPage()
   await fillInputs(page)
   await page.waitForTimeout(1000)
+  await page.close()
   await browser.close()
 
   const found = execSync(`grep "p.a.s.s.1.2.3" --text --only-matching --recursive "${userDataDir}" || echo 'no results'`, { encoding: 'utf-8' })
@@ -31,6 +32,7 @@ test('Firefox: inputs are not written to disk', async () => {
   const page = await browser.newPage()
   await fillInputs(page)
   await page.waitForTimeout(1000)
+  await page.close()
   await browser.close()
 
   const found = execSync(`grep "pass123" --text --only-matching --recursive "${userDataDir}" || echo 'no results'`, { encoding: 'utf-8' })
